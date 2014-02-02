@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/textView1"
+    android:layout_toLeftOf="@+id/textView1"
+    android:gravity="center"
+    android:orientation="vertical" >
+    
+       <!-- Facebook Login Button 
+    <Button android:id="@+id/btn_fblogin"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:src="@drawable/btn_login"
+        		android:layout_marginTop="30dip"
+        		android:layout_gravity="center_horizontal"
+        		android:text="Login with Facebook"/>-->
+        		
+        		        
+    <ImageButton
+        android:id="@+id/btnSpeak"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/speak"
+        android:src="@android:drawable/ic_btn_speak_now"/>
+       <!-- android:visibility="gone"-->
+
+    <EditText
+        android:id="@+id/txtText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        <!--android:visibility="gone"-->
+        <!--android:layout_height="wrap_content"-->
+
+    
+     <!-- Facebook Post to Wall Button -->
+    <Button android:id="@+id/btn_fb_post_to_wall"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="Post to Wall"
+        		android:layout_marginTop="30dip"
+        		android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

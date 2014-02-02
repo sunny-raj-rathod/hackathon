@@ -1,0 +1,17 @@
+package net.viralpatel.android.speechtotextdemo;
+
+public class SpellChecker extends android.service.textservice.SpellCheckerService {
+	@Override                                                                        
+	public Session createSession() {                                             
+	    return new AndroidSpellCheckerSession();                                 
+	}       
+
+	private static class AndroidSpellCheckerSession extends Session {            
+	    @Override                                                                
+	    public SuggestionsInfo onGetSuggestions(TextInfo textInfo, int suggestionsLimit) {
+	        SuggestionsInfo suggestionsInfo;
+	        ... // look up suggestions for TextInfo
+	        return suggestionsInfo;
+	    }      
+	}
+}

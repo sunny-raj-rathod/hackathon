@@ -1,0 +1,5 @@
+package net.viralpatel.android.speechtotextdemo;
+
+public class SpellChecker {
+
+}
