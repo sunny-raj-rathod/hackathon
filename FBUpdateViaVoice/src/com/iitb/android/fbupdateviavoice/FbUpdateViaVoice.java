@@ -3,6 +3,8 @@ package com.iitb.android.fbupdateviavoice;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import org.json.JSONException;
@@ -12,10 +14,14 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -56,6 +62,28 @@ public class FbUpdateViaVoice extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "com.iitb.android.fbupdateviavoice", 
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                }
+        }     catch (NameNotFoundException e1) {
+            // TODO Auto-generated catch block
+            Log.e("name not found", e1.toString());
+        }
+
+        catch (NoSuchAlgorithmException e) {
+            // TODO Auto-generated catch block
+            Log.e("no such an algorithm", e.toString());
+        }
+        catch (Exception e){
+            Log.e("exception", e.toString());
+        }
 		
 		loginToFacebook();
 
